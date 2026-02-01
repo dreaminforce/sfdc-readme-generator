@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Salesforce GitHub README Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+    <div class="bg-orb orb-3" aria-hidden="true"></div>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Salesforce Profile Toolkit</p>
+        <h1>GitHub README Generator</h1>
+        <p class="subhead">
+          Build a Salesforce-focused profile section in seconds. Pick clouds, certifications, and add your bio — then copy
+          the Markdown snippet.
+        </p>
+        <div class="pill-row">
+          <span class="pill">No sign-in</span>
+          <span class="pill">Instant preview</span>
+          <span class="pill">Copy-ready snippet</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Profile Details</h2>
+          <p>Start with the basics. Anything blank is simply skipped.</p>
+        </div>
+
+        <form id="profile-form" class="form" autocomplete="off">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Ari K." />
+          </div>
+
+          <div class="field">
+            <label for="title">Role / Headline</label>
+            <input id="title" name="title" type="text" placeholder="Salesforce Developer" />
+          </div>
+
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" placeholder="Acme Cloud Co." />
+          </div>
+
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" name="location" type="text" placeholder="Chicago, IL" />
+          </div>
+
+          <div class="field">
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" rows="4" placeholder="2-3 lines about your Salesforce journey."></textarea>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="trailhead">Trailhead URL</label>
+              <input id="trailhead" name="trailhead" type="url" placeholder="https://www.salesforce.com/trailblazer/you" />
+            </div>
+            <div class="field">
+              <label for="linkedin">LinkedIn URL</label>
+              <input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/you" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="url" placeholder="https://your-site.dev" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@email.com" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="icon-size">Icon size</label>
+            <div class="range-row">
+              <input id="icon-size" name="icon-size" type="range" min="28" max="56" value="40" />
+              <span id="icon-size-value" class="chip">40px</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="align">Alignment</label>
+            <select id="align" name="align">
+              <option value="left">Left</option>
+              <option value="center" selected>Center</option>
+            </select>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Clouds & Certifications</h2>
+          <p>Search and pick the logos that match your expertise.</p>
+        </div>
+
+        <div class="picker">
+          <div class="picker-header">
+            <h3>Clouds</h3>
+            <div class="picker-actions">
+              <button type="button" class="ghost" data-action="select-clouds">Select all</button>
+              <button type="button" class="ghost" data-action="clear-clouds">Clear</button>
+            </div>
+          </div>
+          <input id="cloud-search" class="search" type="search" placeholder="Search clouds" />
+          <div id="cloud-list" class="checkbox-grid" aria-live="polite"></div>
+        </div>
+
+        <div class="picker">
+          <div class="picker-header">
+            <h3>Certifications</h3>
+            <div class="picker-actions">
+              <button type="button" class="ghost" data-action="select-certs">Select all</button>
+              <button type="button" class="ghost" data-action="clear-certs">Clear</button>
+            </div>
+          </div>
+          <input id="cert-search" class="search" type="search" placeholder="Search certifications" />
+          <div id="cert-list" class="checkbox-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="panel-header">
+          <h2>Markdown Snippet</h2>
+          <p>Copy this section into your GitHub profile README.</p>
+        </div>
+
+        <div class="output-actions">
+          <button id="generate-btn" type="button" class="primary">Generate Snippet</button>
+          <button id="copy-btn" type="button" class="ghost">Copy Markdown</button>
+          <button id="download-btn" type="button" class="ghost">Download .md</button>
+        </div>
+
+        <div class="output">
+          <pre><code id="markdown-output"></code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Powered by <code>imageslinks.md</code>. Host this repo on GitHub Pages to share your generator.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
